@@ -21,7 +21,6 @@
       </aside>
       <main>
         <router-view />
-        <Icon name="logo" />
       </main>
     </div>
   </div>
