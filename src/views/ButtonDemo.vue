@@ -1,4 +1,4 @@
-<template>Switch 示例</template>
+<template>Button 示例</template>
 
 <script lang="ts">
 export default {};
