@@ -1,3 +1,14 @@
 <template>
-  <button><slot /></button>
+  <button class="simple-button" :class="`theme-${theme}`"><slot /></button>
 </template>
+
+<script lang="ts">
+export default {
+  props: {
+    theme: {
+      type: String,
+      default: "button",
+    },
+  },
+};
+</script>
