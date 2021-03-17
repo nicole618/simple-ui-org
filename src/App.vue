@@ -13,7 +13,6 @@ export default {
     provide("asideVisable", asideVisable);
     router.afterEach(() => {
       if (width <= 500) {
-        console.log(111);
         asideVisable.value = false;
       }
     });

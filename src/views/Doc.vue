@@ -21,6 +21,7 @@
       </aside>
       <main>
         <router-view />
+        <Icon name="logo" />
       </main>
     </div>
   </div>
@@ -29,7 +30,6 @@
 <script lang='ts'>
 import TopNav from "../components/TopNav.vue";
 import { inject, Ref } from "vue";
-
 export default {
   components: { TopNav },
   setup() {
@@ -64,7 +64,6 @@ export default {
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: lightgreen;
   }
 }
 aside {
