@@ -5,6 +5,7 @@ import './index.scss'
 import Doc from './views/Doc.vue'
 import Home from './views/Home.vue'
 
+
 const history = createWebHistory()
 const router = createRouter({
     history: history,
