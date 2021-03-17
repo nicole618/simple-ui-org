@@ -1,6 +1,12 @@
 <template>
   <div>
-    <button :class="{ checked: value }" @click="toggle"><span></span></button>
+    <button
+      class="simple-switch"
+      :class="{ 'simple-checked': value }"
+      @click="toggle"
+    >
+      <span></span>
+    </button>
   </div>
 </template>
 <script lang="ts">
@@ -17,9 +23,9 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 28px;
-button {
+.simple-switch {
   height: $h;
   width: $h * 2;
   border: 1px solid #dfdfdf;
@@ -40,7 +46,7 @@ button {
     border-radius: 50%;
     transition: box-shadow 0.3s, left 0.25s;
   }
-  &.checked {
+  &.simple-checked {
     box-shadow: 0 0 0 $h/2 inset #64bd63;
     border: 1px solid #64bd63;
     > span {
