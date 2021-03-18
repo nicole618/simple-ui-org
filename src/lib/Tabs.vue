@@ -9,7 +9,7 @@
         @click="select(t)"
         :ref="
           (el) => {
-            navItems[index] = el;
+            if (t === selected) selectedTtem = el;
           }
         "
       >
@@ -38,18 +38,14 @@ export default {
   },
   components: { Tab },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]>([]);
+    const selectedTtem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     const x = () => {
-      const divs = navItems.value;
-      const result = divs.filter((div) =>
-        div.classList.contains("selected")
-      )[0];
-      const { width } = result.getBoundingClientRect();
+      const { width } = selectedTtem.value.getBoundingClientRect();
       indicator.value.style.width = width + "px";
       const { left: left1 } = container.value.getBoundingClientRect();
-      const { left: left2 } = result.getBoundingClientRect();
+      const { left: left2 } = selectedTtem.value.getBoundingClientRect();
       const left = left2 - left1;
       indicator.value.style.left = left + "px";
     };
@@ -79,7 +75,7 @@ export default {
       titles,
       current,
       select,
-      navItems,
+      selectedTtem,
       indicator,
       container,
     };
