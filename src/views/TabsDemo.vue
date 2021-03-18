@@ -1,7 +1,7 @@
 <template>
   <div>Tabs 示例</div>
   <h2>示例一</h2>
-  <Tabs>
+  <Tabs v-model:selected="x">
     <Tab title="导航1">内容一</Tab>
     <Tab title="导航2">内容二</Tab>
   </Tabs>
@@ -10,7 +10,13 @@
 <script lang="ts">
 import Tabs from "../lib/Tabs.vue";
 import Tab from "../lib/Tab.vue";
+import { ref } from "vue";
 export default {
   components: { Tabs, Tab },
+  setup() {
+    const x = ref("导航1");
+
+    return { x };
+  },
 };
 </script>
