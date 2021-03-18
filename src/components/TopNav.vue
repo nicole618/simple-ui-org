@@ -1,17 +1,33 @@
 <template>
   <div class="topnav">
-    <div class="logo"><router-link to="/">LOGO</router-link></div>
+    <router-link to="/" class="logo">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-logo"></use></svg
+    ></router-link>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <router-link to="/doc" class="homeButton"
+        ><svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-doc"></use></svg
+        >文档</router-link
+      >
     </ul>
-    <span class="taggleMenu" @click="toggleMenu"></span>
+    <span class="toggleMenu" @click="toggleMenu" v-if="toggleMenuVisible">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-more"></use>
+      </svg>
+    </span>
   </div>
 </template>
 
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
+  props: {
+    toggleMenuVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const asideVisable = inject<Ref<boolean>>("asideVisable");
     const toggleMenu = () => {
@@ -24,7 +40,6 @@ export default {
 
 <style lang="scss" scoped>
 .topnav {
-  background: pink;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -34,27 +49,39 @@ export default {
   z-index: 10;
   justify-content: center;
   align-items: center;
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#ffacc2),
+    to(#f1f1d7)
+  );
+  background-image: linear-gradient(250deg, #ffacc2, #f1f1d7);
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    .icon {
+      width: 35px;
+      height: 35px;
+    }
   }
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-    > li {
-      margin: 0 1em;
-    }
   }
-  > .taggleMenu {
+  > .toggleMenu {
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
     display: none;
+    .icon {
+      width: 100%;
+      height: 100%;
+    }
   }
   @media (max-width: 500px) {
     > .menu {
@@ -63,7 +90,7 @@ export default {
     > .logo {
       margin: 0 auto;
     }
-    > .taggleMenu {
+    > .toggleMenu {
       display: inline-block;
     }
   }
