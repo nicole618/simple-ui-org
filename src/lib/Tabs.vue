@@ -7,10 +7,15 @@
         :key="index"
         :class="{ selected: t === selected }"
         @click="select(t)"
+        :ref="
+          (el) => {
+            navItems[index] = el;
+          }
+        "
       >
         {{ t }}
       </div>
-      <div class="simple-tabs-nav-indicator"></div>
+      <div class="simple-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="simple-tabs-content">
       <component
@@ -23,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {
@@ -33,6 +38,16 @@ export default {
   },
   components: { Tab },
   setup(props, context) {
+    const navItems = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null);
+    onMounted(() => {
+      const divs = navItems.value;
+      const result = divs.filter((div) =>
+        div.classList.contains("selected")
+      )[0];
+      const { width } = result.getBoundingClientRect();
+      indicator.value.style.width = width + "px";
+    });
     const defaults = context.slots.default();
     defaults.forEach((tab) => {
       if (tab.type !== Tab) {
@@ -48,7 +63,7 @@ export default {
     const select = (title: string) => {
       context.emit("update:selected", title);
     };
-    return { defaults, titles, current, select };
+    return { defaults, titles, current, select, navItems, indicator };
   },
 };
 </script>
