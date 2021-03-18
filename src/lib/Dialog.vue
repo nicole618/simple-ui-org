@@ -4,12 +4,11 @@
     <div class="simple-dialog-wrapper">
       <div class="simple-dialog">
         <header>
-          标题
+          <slot name="title" />
           <span class="simple-dialog-close" @click="close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot name="content" />
         </main>
         <footer>
           <Botton level="main" @click="ok">OK</Botton>
@@ -94,7 +93,8 @@ $border-color: #d9d9d9;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 16px;
+    white-space: nowrap;
   }
   > main {
     padding: 12px 16px;

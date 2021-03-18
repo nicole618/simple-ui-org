@@ -6,7 +6,10 @@
     :closeonClickOverlay="false"
     :ok="f1"
     :cancel="f2"
-  />
+  >
+    <template v-slot:title> 提示 </template>
+    <template v-slot:content> 内容 </template>
+  </Dialog>
 </template>
 
 <script lang="ts">
