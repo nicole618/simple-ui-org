@@ -1,5 +1,5 @@
  <template>
-  <template v-if="visiable">
+  <template v-if="visible">
     <teleport to="body">
       <div class="simple-dialog-overflow" @click="onClickOverlay"></div>
       <div class="simple-dialog-wrapper">
@@ -26,11 +26,11 @@ import Botton from "./Button.vue";
 export default {
   components: { Botton },
   props: {
-    visiable: {
+    visible: {
       type: Boolean,
       default: false,
     },
-    closeonClickOverlay: {
+    closeOnClickOverlay: {
       type: Boolean,
       default: true,
     },
@@ -43,10 +43,10 @@ export default {
   },
   setup(props, context) {
     const close = () => {
-      context.emit("update:visiable", false);
+      context.emit("update:visible", false);
     };
     const onClickOverlay = () => {
-      if (props.closeonClickOverlay) {
+      if (props.closeOnClickOverlay) {
         close();
       }
     };
@@ -56,7 +56,7 @@ export default {
       }
     };
     const cancel = () => {
-      context.emit("cancel");
+      props.cancel?.();
       close();
     };
     return { close, onClickOverlay, ok, cancel };
