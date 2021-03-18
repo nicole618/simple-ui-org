@@ -1,16 +1,19 @@
  <template>
-  <template v-if="visible">
-    <div class="simple-dialog-overflow"></div>
+  <template v-if="visiable">
+    <div class="simple-dialog-overflow" @click="onClickOverlay"></div>
     <div class="simple-dialog-wrapper">
       <div class="simple-dialog">
-        <header>标题</header>
+        <header>
+          标题
+          <span class="simple-dialog-close" @click="close"></span>
+        </header>
         <main>
           <p>第一行字</p>
           <p>第二行字</p>
         </main>
         <footer>
-          <Botton>OK</Botton>
-          <Botton>Cancel</Botton>
+          <Botton level="main" @click="ok">OK</Botton>
+          <Botton @click="cancel">Cancel</Botton>
         </footer>
       </div>
     </div>
@@ -22,10 +25,40 @@ import Botton from "./Button.vue";
 export default {
   components: { Botton },
   props: {
-    visible: {
+    visiable: {
       type: Boolean,
       default: false,
     },
+    closeonClickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+    ok: {
+      type: Function,
+    },
+    cancel: {
+      type: Function,
+    },
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit("update:visiable", false);
+    };
+    const onClickOverlay = () => {
+      if (props.closeonClickOverlay) {
+        close();
+      }
+    };
+    const ok = () => {
+      if (props.ok?.() !== false) {
+        close();
+      }
+    };
+    const cancel = () => {
+      context.emit("cancel");
+      close();
+    };
+    return { close, onClickOverlay, ok, cancel };
   },
 };
 </script>

@@ -1,7 +1,12 @@
 <template>
   <h2>示例一</h2>
   <Button @click="toggle">切换Dialog</Button>
-  <Dialog :visible="x" />
+  <Dialog
+    v-model:visiable="x"
+    :closeonClickOverlay="false"
+    :ok="f1"
+    :cancel="f2"
+  />
 </template>
 
 <script lang="ts">
@@ -15,7 +20,11 @@ export default {
     const toggle = () => {
       x.value = !x.value;
     };
-    return { x, toggle };
+    const f1 = () => {
+      return false;
+    };
+    const f2 = () => {};
+    return { x, toggle, f1, f2 };
   },
 };
 </script>
