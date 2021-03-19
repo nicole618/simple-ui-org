@@ -95,10 +95,12 @@ $color: #d9a4a8;
   display: flex;
   > aside {
     flex-shrink: 0;
+    background: #fff;
+    z-index: 3;
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
+    padding: 30px;
   }
 }
 aside {
