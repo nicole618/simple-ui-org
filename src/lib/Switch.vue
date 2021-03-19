@@ -4,16 +4,20 @@
       class="simple-switch"
       :class="{ 'simple-checked': value }"
       @click="toggle"
+      :disabled="disabled"
     >
       <span></span>
     </button>
   </div>
 </template>
 <script lang="ts">
-import { ref } from "vue";
 export default {
   props: {
     value: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, context) {
     const toggle = () => {
@@ -55,6 +59,10 @@ $h: 28px;
   }
   &:focus {
     outline: none;
+  }
+  &[disabled] {
+    cursor: not-allowed;
+    background: #eee;
   }
 }
 </style>

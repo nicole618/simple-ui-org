@@ -1,0 +1,40 @@
+$color:#3e1616;
+$border-color:#f7e4e5;
+$border-radius:4px;
+$hover-color:#c98f94;
+.format-header{
+    color:#3e1616;
+    h1{
+        font-weight: bold;
+        font-size: 20px;
+    }
+    hr{
+        margin: 10px 0 15px 0;
+        border: none;
+        border-bottom: 1px solid $border-color;
+    }
+    
+}
+.format-section{
+    margin-top: 20px;
+    h2{
+        font-size: 16px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .format-sample{
+        padding: 25px;
+        border: 1px solid $border-color;
+        border-radius: $border-color;
+        margin-top: 20px;
+        display: flex;
+        align-items: flex-end;
+    }
+    .format-code-btn{
+        padding: 15px 0;
+        background: #fdf1f3;
+        text-align: center;
+        color: $hover-color;
+        cursor: pointer;
+    }
+}
