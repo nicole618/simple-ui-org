@@ -8,7 +8,7 @@
     <h2>基本用法</h2>
     <p>基础用法，状态切换会触发事件</p>
     <div class="format-sample">
-      <Switch1Demo />
+      <component :is="Switch1Demo" />
     </div>
     <div class="format-code">
       <div class="format-code-text">
@@ -21,7 +21,7 @@
     <h2>不可用开关</h2>
     <p>添加属性 disabled 禁用开关按钮</p>
     <div class="format-sample">
-      <Switch2Demo />
+      <component :is="Switch2Demo" />
     </div>
     <div class="format-code">
       <div class="format-code-text">
