@@ -15,7 +15,7 @@
               <router-link to="/doc/intro">介绍</router-link>
             </li>
             <li>
-              <router-link to="/doc/Install">开始</router-link>
+              <router-link to="/doc/Install">安装</router-link>
             </li>
             <li>
               <router-link to="/doc/get-started">使用</router-link>
@@ -74,6 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
+$color: #d9a4a8;
 .layout {
   display: flex;
   flex-direction: column;
@@ -118,25 +119,56 @@ aside {
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
+      position: relative;
       .icon {
         font-size: 20px;
         transition: all 0.3s ease;
+      }
+      &:hover {
+        background: #eee;
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        right: 0;
+        margin: 0 auto;
+        background: #ccc;
+        opacity: 1;
+        width: 0;
+        transition: all 0.5s ease;
       }
     }
     > ol {
       display: none;
       > li {
+        position: relative;
         a {
           display: block;
           padding-left: 25px;
+          position: relative;
+          z-index: 6;
+          &.router-link-active {
+            color: $color;
+          }
         }
         line-height: 35px;
+        &:hover {
+          background: #eee;
+        }
       }
     }
     &.openOl {
       h2 {
         .icon {
           transform: rotate(180deg);
+        }
+        &::after {
+          width: 100%;
+          background: transparent;
         }
       }
       ol {
@@ -153,6 +185,11 @@ aside {
   }
   main {
     overflow: auto;
+  }
+}
+@keyframes withChange {
+  0% {
+    background: #ccc;
   }
 }
 </style>
