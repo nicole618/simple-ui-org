@@ -6,19 +6,21 @@ import DocDemo from './views/DocDemo.vue';
 import Home from './views/Home.vue';
 import SwitchDemo from './views/SwitchDemo.vue';
 import TabsDemo from './views/TabsDemo.vue';
-import Intro from './views/Intro.vue'
-import GetStarted from './views/GetStarted.vue'
-import Install from './views/Install.vue'
-const history = createWebHistory()
+import Markdown from './components/Markdown.vue';
+import { h } from 'vue';
+
+const md = filename => h(Markdown, { path: `../markdown/${filename}.md`, key: filename })
+
+const history = createWebHistory();
 export const router = createRouter({
     history: history,
     routes: [
         { path: '/', component: Home },
         {
             path: '/doc', component: Doc, children: [
-                { path: 'get-started', component: GetStarted },
-                { path: 'intro', component: Intro },
-                { path: 'install', component: Install },
+                { path: 'get-started', component: md('get-started') },
+                { path: 'intro', component: md('intro') },
+                { path: 'install', component: md('install') },
                 { path: '/', component: DocDemo },
                 { path: 'switch', component: SwitchDemo },
                 { path: 'button', component: ButtonDemo },
