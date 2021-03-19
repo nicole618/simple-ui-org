@@ -12,7 +12,12 @@
     </div>
     <div class="format-code">
       <div class="format-code-text">
-        <pre>{{ Switch1Demo.__sourceCode }}</pre>
+        <pre
+          class="language-html"
+          v-html="
+            Prism.highlight(Switch1Demo.__sourceCode, Prism.languages.html)
+          "
+        ></pre>
       </div>
       <p class="format-code-btn">显示代码</p>
     </div>
@@ -25,7 +30,12 @@
     </div>
     <div class="format-code">
       <div class="format-code-text">
-        <pre>{{ Switch2Demo.__sourceCode }}</pre>
+        <pre
+          class="language-html"
+          v-html="
+            Prism.highlight(Switch2Demo.__sourceCode, Prism.languages.html)
+          "
+        ></pre>
       </div>
       <p class="format-code-btn">显示代码</p>
     </div>
@@ -35,11 +45,16 @@
 <script lang="ts">
 import Switch1Demo from "../components/Switch1.demo.vue";
 import Switch2Demo from "../components/Switch2.demo.vue";
+import "prismjs";
+import "prismjs/themes/prism-solarizedlight.css";
+const Prism = (window as any).Prism;
+
 export default {
   setup() {
     return {
       Switch1Demo,
       Switch2Demo,
+      Prism,
     };
   },
 };
