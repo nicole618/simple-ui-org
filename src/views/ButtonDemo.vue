@@ -1,74 +1,88 @@
 <template>
-  <div>
-    <header class="format-header">
-      <h1>Button示例</h1>
-      <hr />
-      <p>按钮用于传递用户触摸时会触发的操作</p>
-    </header>
-    <Demo
-      :component="Button1Demo"
-      componentStr="基础按钮分三种：主要按钮（实心） 、 普通按钮（空心） 、 文字按钮"
-    />
-    <h2>示例2</h2>
-    <div>
-      <div>
-        <Button size="big">你好</Button>
-        <Button>你好</Button>
-        <Button size="small">你好</Button>
-      </div>
-      <div>
-        <Button size="big" theme="link">你好</Button>
-        <Button theme="link">你好</Button>
-        <Button size="small" theme="link">你好</Button>
-      </div>
-      <div>
-        <Button size="big" theme="text">你好</Button>
-        <Button theme="text">你好</Button>
-        <Button size="small" theme="text">你好</Button>
-      </div>
-    </div>
-    <h2>示例3</h2>
-    <div>
-      <div>
-        <Button level="main">主要按钮</Button>
-        <Button>普通按钮</Button>
-        <Button level="danger">危险按钮</Button>
-      </div>
-      <div>
-        <Button theme="link" level="main">主要链接按钮</Button>
-        <Button theme="link">普通链接按钮</Button>
-        <Button theme="link" level="danger">危险链接按钮</Button>
-      </div>
-      <div>
-        <Button theme="text" level="main">主要文字按钮</Button>
-        <Button theme="text">普通文字按钮</Button>
-        <Button theme="text" level="danger">危险文字按钮</Button>
-      </div>
-    </div>
-    <h2>示例4</h2>
-    <div>
-      <Button disabled>Hi</Button>
-      <Button type="link" disabled>禁用链接按钮</Button>
-      <Button type="text" disabled>禁用按钮</Button>
-    </div>
-    <h2>示例5</h2>
-    <div>
-      <Button loading>加载中</Button>
-      <Button>加载完毕</Button>
-    </div>
-  </div>
+  <header class="format-header">
+    <h1>Button示例</h1>
+    <hr />
+    <p>按钮用于传递用户触摸时会触发的操作</p>
+  </header>
+  <Demo
+    :component="Button1Demo"
+    componentStr="基础按钮分三种：主要按钮（实心） 、 普通按钮（空心） 、 文字按钮"
+  />
+  <Demo :component="Button2Demo" componentStr="添加属性 disabled 禁用按钮" />
+  <Demo
+    :component="Button3Demo"
+    componentStr="带有色彩倾向的按钮能给用户带来操作提示"
+  />
+  <Demo
+    :component="Button4Demo"
+    componentStr="按钮提供四种尺寸：大、中、小，可通过 size 属性配置"
+  />
+  <Demo
+    :component="Button5Demo"
+    componentStr="可通过添加loading属性，使按钮处于加载中状态"
+  />
+  <section class="simple-args">
+    <h2>Button 参数</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>参数</th>
+          <th>说明</th>
+          <th>类型</th>
+          <th>可选值</th>
+          <th>默认值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>type</td>
+          <td>按钮的类型</td>
+          <td>String</td>
+          <td>button, primary, success, error, warning, info, text</td>
+          <td>button</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>是否禁用按钮</td>
+          <td>Boolean</td>
+          <td>true,false</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>size</td>
+          <td>设置按钮的大小</td>
+          <td>String</td>
+          <td>big, normal, small</td>
+          <td>normal</td>
+        </tr>
+        <tr>
+          <td>loading</td>
+          <td>设置按钮的载入状态</td>
+          <td>Boolean</td>
+          <td>true,false</td>
+          <td>false</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </template>
 
 <script lang="ts">
-import Button from "../lib/Button.vue";
 import Button1Demo from "../components/Button1.demo.vue";
+import Button2Demo from "../components/Button2.demo.vue";
+import Button3Demo from "../components/Button3.demo.vue";
+import Button4Demo from "../components/Button4.demo.vue";
+import Button5Demo from "../components/Button5.demo.vue";
 import Demo from "../components/Demo.vue";
 export default {
-  components: { Button, Demo, Button1Demo },
   setup() {
     return {
       Demo,
       Button1Demo,
+      Button2Demo,
+      Button3Demo,
+      Button4Demo,
+      Button5Demo,
     };
   },
 };

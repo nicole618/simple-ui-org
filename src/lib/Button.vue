@@ -17,10 +17,6 @@ export default {
       type: String,
       default: "normal",
     },
-    level: {
-      type: String,
-      default: "normal",
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -31,12 +27,11 @@ export default {
     },
   },
   setup(props) {
-    const { type, size, level } = props;
+    const { type, size } = props;
     const classes = computed(() => {
       return {
         [`simple-type-${type}`]: type,
         [`simple-size-${size}`]: size,
-        [`simple-level-${level}`]: level,
       };
     });
     return { classes };
@@ -50,15 +45,18 @@ $border-color: #c5d9e8;
 $bg-low: #f3f7fa;
 $white: white;
 $color: #333;
+$lowColor: #999;
 $blue: #40a9ff;
 $radius: 4px;
-$red: red;
-$grey: grey;
 $bgPrimary: #6190e8;
+$bgSuccess: #13ce66;
+$bgError: #ff4949;
+$bgWarning: #ffc82c;
+$bgInfo: #78a4fa;
+$grey: #eee;
 .simple-button {
   box-sizing: border-box;
-  height: $h;
-  padding: 0 12px;
+  padding: 8px 12px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -83,6 +81,12 @@ $bgPrimary: #6190e8;
   &::-moz-focus-inner {
     border: 0;
   }
+  &.simple-size-big {
+    font-size: 20px;
+  }
+  &.simple-size-small {
+    font-size: 12px;
+  }
   &.simple-type-primary {
     border-color: transparent;
     background: $bgPrimary;
@@ -93,6 +97,47 @@ $bgPrimary: #6190e8;
       background: lighten($bgPrimary, 10%);
     }
   }
+  &.simple-type-success {
+    border-color: transparent;
+    background: $bgSuccess;
+    box-shadow: none;
+    color: $white;
+    &:hover,
+    &:focus {
+      background: lighten($bgSuccess, 10%);
+    }
+  }
+  &.simple-type-error {
+    border-color: transparent;
+    background: $bgError;
+    box-shadow: none;
+    color: $white;
+    &:hover,
+    &:focus {
+      background: lighten($bgError, 10%);
+    }
+  }
+  &.simple-type-warning {
+    border-color: transparent;
+    background: $bgWarning;
+    box-shadow: none;
+    color: $white;
+    &:hover,
+    &:focus {
+      background: lighten($bgWarning, 10%);
+    }
+  }
+  &.simple-type-info {
+    border-color: transparent;
+    background: $bgInfo;
+    box-shadow: none;
+    color: $white;
+    &:hover,
+    &:focus {
+      background: lighten($bgInfo, 10%);
+    }
+  }
+
   &.simple-type-text {
     border-color: transparent;
     box-shadow: none;
@@ -101,6 +146,44 @@ $bgPrimary: #6190e8;
     &:focus {
       background: darken(white, 5%);
     }
+  }
+  &[disabled] {
+    cursor: not-allowed;
+  }
+  &.simple-type-primary[disabled],
+  &.simple-type-success[disabled],
+  &.simple-type-error[disabled],
+  &.simple-type-warning[disabled],
+  &.simple-type-info[disabled] {
+    color: $lowColor;
+    background: $grey;
+    &:hover {
+      background: $grey;
+    }
+  }
+  &.simple-type-button[disabled] {
+    color: $lowColor;
+    border-color: $grey;
+    &:hover {
+      background: inherit;
+    }
+  }
+  &.simple-type-text[disabled] {
+    color: $lowColor;
+    &:hover {
+      background: inherit;
+    }
+  }
+  .simple-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: #ccc #ddd #eee transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: 1s linear infinite simple-spin;
   }
 }
 @keyframes simple-spin {
