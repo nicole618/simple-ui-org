@@ -12,8 +12,7 @@
 import Switch1Demo from "../components/Switch1.demo.vue";
 import Switch2Demo from "../components/Switch2.demo.vue";
 import Demo from "../components/Demo.vue";
-
-export default { 
+export default {
   components: { Demo },
   setup() {
     return {

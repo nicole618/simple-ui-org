@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <button
-      class="simple-switch"
-      :class="{ 'simple-checked': value }"
-      @click="toggle"
-      :disabled="disabled"
-    >
-      <span></span>
-    </button>
-  </div>
+  <button
+    class="simple-switch"
+    :class="{ 'simple-checked': value }"
+    @click="toggle"
+    :disabled="disabled"
+  >
+    <span></span>
+  </button>
 </template>
 <script lang="ts">
 export default {

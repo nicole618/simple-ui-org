@@ -10,7 +10,7 @@
         <pre class="language-html" v-html="html"></pre>
       </div>
       <p class="format-code-btn" @click="codeVisible = !codeVisible">
-        显示代码
+        {{ codeVisible === true ? "隐藏" : "显示" }}代码
       </p>
     </div>
   </section>
