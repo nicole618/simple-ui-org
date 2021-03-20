@@ -7,6 +7,11 @@
     </div>
     <div class="format-code">
       <div class="format-code-text" v-if="codeVisible">
+        <span class="format-copy" @click="formatCopy">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-copy"></use>
+          </svg>
+        </span>
         <pre class="language-html" v-html="html"></pre>
       </div>
       <p class="format-code-btn" @click="codeVisible = !codeVisible">
@@ -33,11 +38,23 @@ export default {
         Prism.languages.html
       );
     });
+    const formatCopy = (e) => {
+      const span = e.currentTarget;
+      const pre = span.nextElementSibling;
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      var range = document.createRange();
+      range.selectNodeContents(pre); // 需要选中的dom节点
+      selection.addRange(range);
+      document.execCommand("Copy");
+      selection.removeRange(range);
+    };
     const codeVisible = ref(false);
     return {
       Prism,
       html,
       codeVisible,
+      formatCopy,
     };
   },
 };

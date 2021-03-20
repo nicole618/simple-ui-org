@@ -2,6 +2,7 @@ $color: #3e1616;
 $border-color: #f7e4e5;
 $border-radius: 4px;
 $hover-color: #c98f94;
+$bg:#fdf1f3;
 .format-header {
   color: #3e1616;
   h1 {
@@ -31,12 +32,68 @@ $hover-color: #c98f94;
   }
   .format-code-text{
       font-size: 12px;
+      position: relative;
+      .format-copy{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: block;
+        .icon{
+          width: 25px;
+          height: 25px;
+          cursor: pointer;
+          display: none;
+        }
+      }
+      &:hover{
+        .icon{
+          display: block;
+        }
+      }
+      @media (max-width:500px) {
+        .format-copy{
+          .icon{
+            display: block;
+          }
+        }
+      }
   }
   .format-code-btn {
     padding: 15px 0;
-    background: #fdf1f3;
+    background: $bg;
     text-align: center;
     color: $hover-color;
     cursor: pointer;
   }
+}
+
+.simple-args{
+  h2{
+    font-size: 16px;
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  table{
+      background-color: #fff;
+      color: #5e6d82;
+      font-size: 14px;
+      border-collapse: collapse;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      th{
+        border: 1px solid $border-color;
+        padding: 8px 16px;
+        text-align: left;
+        background: $bg;
+        white-space: nowrap;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      td{
+        padding: 8px 16px;
+        border: 1px solid $border-color;
+        font-size: 12px;
+      }
+  }
+
 }
