@@ -27,6 +27,8 @@ export default {
 </script>
 <style lang="scss">
 $h: 28px;
+$bg-high: #4caf50;
+$bg-low: #eee;
 .simple-switch {
   height: $h;
   width: $h * 2;
@@ -49,8 +51,8 @@ $h: 28px;
     transition: box-shadow 0.3s, left 0.25s;
   }
   &.simple-checked {
-    box-shadow: 0 0 0 $h/2 inset #64bd63;
-    border: 1px solid #64bd63;
+    box-shadow: 0 0 0 $h/2 inset $bg-high;
+    border: 1px solid $bg-high;
     > span {
       left: calc(100% - #{$h});
     }
@@ -60,7 +62,7 @@ $h: 28px;
   }
   &[disabled] {
     cursor: not-allowed;
-    background: #eee;
+    background: $bg-low;
   }
 }
 </style>

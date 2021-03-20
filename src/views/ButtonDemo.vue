@@ -5,20 +5,10 @@
       <hr />
       <p>按钮用于传递用户触摸时会触发的操作</p>
     </header>
-    <section class="format-section">
-      <h2>基础按钮</h2>
-      <p>基础按钮分三种：主按钮（实心） 、 次按钮（空心） 、 文字按钮</p>
-      <div class="format-sample">
-        <Button>你好</Button>
-        <Button theme="button">你好</Button>
-        <Button theme="link">你好</Button>
-        <Button theme="text">你好</Button>
-      </div>
-      <div class="format-code">
-        <div class="format-code-text"></div>
-        <p class="format-code-btn">显示代码</p>
-      </div>
-    </section>
+    <Demo
+      :component="Button1Demo"
+      componentStr="基础按钮分三种：主要按钮（实心） 、 普通按钮（空心） 、 文字按钮"
+    />
     <h2>示例2</h2>
     <div>
       <div>
@@ -58,8 +48,8 @@
     <h2>示例4</h2>
     <div>
       <Button disabled>Hi</Button>
-      <Button theme="link" disabled>禁用链接按钮</Button>
-      <Button theme="text" disabled>禁用按钮</Button>
+      <Button type="link" disabled>禁用链接按钮</Button>
+      <Button type="text" disabled>禁用按钮</Button>
     </div>
     <h2>示例5</h2>
     <div>
@@ -71,7 +61,15 @@
 
 <script lang="ts">
 import Button from "../lib/Button.vue";
+import Button1Demo from "../components/Button1.demo.vue";
+import Demo from "../components/Demo.vue";
 export default {
-  components: { Button },
+  components: { Button, Demo, Button1Demo },
+  setup() {
+    return {
+      Demo,
+      Button1Demo,
+    };
+  },
 };
 </script>
