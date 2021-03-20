@@ -12,8 +12,8 @@
             <slot name="content" />
           </main>
           <footer>
-            <Botton level="main" @click="ok">OK</Botton>
-            <Botton @click="cancel">Cancel</Botton>
+            <Botton type="primary" @click="ok">{{ firstname }}</Botton>
+            <Botton @click="cancel">{{ lastname }}</Botton>
           </footer>
         </div>
       </div>
@@ -39,6 +39,14 @@ export default {
     },
     cancel: {
       type: Function,
+    },
+    firstButtonName: {
+      type: String,
+      default: "ok",
+    },
+    lastButtonName: {
+      type: String,
+      default: "Cancel",
     },
   },
   setup(props, context) {

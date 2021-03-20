@@ -15,7 +15,7 @@
   />
   <Demo
     :component="Button4Demo"
-    componentStr="按钮提供四种尺寸：大、中、小，可通过 size 属性配置"
+    componentStr="按钮提供三种尺寸：大、中、小，可通过 size 属性配置"
   />
   <Demo
     :component="Button5Demo"
