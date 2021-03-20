@@ -1,4 +1,4 @@
-<demo>支持disabled</demo>
+<demo>不可用开关</demo>
 <template>
   <Switch v-model:value="bool" disabled />
 </template>
