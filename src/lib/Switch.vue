@@ -62,7 +62,6 @@ $h: 28px;
   }
   &[disabled] {
     cursor: not-allowed;
-    pointer-events: none;
   }
 }
 </style>
