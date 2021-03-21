@@ -8,9 +8,7 @@
   <Button @click="showAlert4" type="error">错误提示框</Button>
 </template>
 <script lang="ts">
-import Alert from "../lib/Alert.vue";
-import Button from "../lib/Button.vue";
-import { openAlert } from "../lib/openAlert";
+import { Alert, Button, openAlert } from "../lib/index";
 export default {
   components: {
     Alert,

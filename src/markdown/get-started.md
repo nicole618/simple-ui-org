@@ -4,7 +4,7 @@
 然后在你的代码中写入下面的代码
 
 ```
-import {Button, Tabs, Switch, Dialog, Input, Alert} from "simple-ui"
+import {Button, Tabs, Switch, Dialog, Input, Alert} from "utter-simple-ui"
 ```
 
 就可以使用我提供的组件了。
@@ -20,7 +20,7 @@ import {Button, Tabs, Switch, Dialog, Input, Alert} from "simple-ui"
   </div>
 </template>
 <script>
-import {Button} from "simple-ui"
+import {Button} from "utter-simple-ui"
 export default {
   components: {Button}
 }

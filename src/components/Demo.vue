@@ -24,7 +24,7 @@
 <script lang="ts">
 import "prismjs";
 import "prismjs/themes/prism-solarizedlight.css";
-import { openAlert } from "../lib/openAlert";
+import { openAlert } from "../lib/index";
 const Prism = (window as any).Prism;
 import { computed, ref } from "vue";
 export default {
