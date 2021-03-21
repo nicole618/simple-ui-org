@@ -70,8 +70,6 @@ export default {
       if (oldcurrent === undefined) {
         oldcurrent = defaults[0];
       }
-      console.log(oldcurrent);
-
       return oldcurrent;
     });
     const tabs = defaults.map((tag) => {
