@@ -68,9 +68,7 @@ $grey: #eee;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 250ms;
-  & + & {
-    margin-left: 8px;
-  }
+  margin: 2px 4px;
   &:hover,
   &:focus {
     background-color: $bg-low;

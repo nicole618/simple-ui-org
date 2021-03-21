@@ -1,10 +1,7 @@
 <template>
-  <div>Tabs 示例</div>
-  <h2>示例一</h2>
   <Tabs v-model:selected="x">
     <Tab title="导航1">内容一</Tab>
     <Tab title="导航2">内容二</Tab>
-    <Tab title="导航3" disabled>内容三</Tab>
   </Tabs>
 </template>
 
