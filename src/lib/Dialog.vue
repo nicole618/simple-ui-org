@@ -12,8 +12,8 @@
             <slot name="content" />
           </main>
           <footer>
-            <Botton type="primary" @click="ok">{{ firstname }}</Botton>
-            <Botton @click="cancel">{{ lastname }}</Botton>
+            <Botton type="primary" @click="ok">{{ firstButtonName }}</Botton>
+            <Botton @click="cancel">{{ lastButtonName }}</Botton>
           </footer>
         </div>
       </div>

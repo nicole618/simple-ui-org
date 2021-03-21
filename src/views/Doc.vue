@@ -43,7 +43,7 @@
               <router-link to="/doc/tabs">Tabs 标签页</router-link>
             </li>
             <li>
-              <router-link to="/doc/alert">Alert 标签页</router-link>
+              <router-link to="/doc/alert">Alert 提示框</router-link>
             </li>
           </ol>
         </ul>
@@ -104,6 +104,8 @@ $color: #d9a4a8;
   > main {
     flex-grow: 1;
     padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 aside {
