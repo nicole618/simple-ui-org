@@ -28,10 +28,7 @@
 <script lang="ts">
 import Tab from "./Tab.vue";
 import { computed, ref, onMounted, onUpdated } from "vue";
-type Tab = {
-  disabled: String | undefined;
-  title: String;
-};
+
 export default {
   props: {
     selected: {
@@ -80,7 +77,7 @@ export default {
       tab.disabled = tag.props.disabled;
       return tab;
     });
-    const select = (tab: Tab) => {
+    const select = (tab) => {
       if (tab.disabled !== "") {
         context.emit("update:selected", tab.title);
       }
