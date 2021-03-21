@@ -45,6 +45,9 @@
             <li>
               <router-link to="/doc/alert">Alert 提示框</router-link>
             </li>
+            <li>
+              <router-link to="/doc/input">Input 输入框</router-link>
+            </li>
           </ol>
         </ul>
       </aside>
