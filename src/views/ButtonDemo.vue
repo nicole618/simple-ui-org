@@ -6,7 +6,7 @@
   </header>
   <Demo
     :component="Button1Demo"
-    componentStr="基础按钮分三种：主要按钮（实心） 、 普通按钮（空心） 、 文字按钮"
+    componentStr="基础按钮分三种：默认按钮（实心） 、 普通按钮（空心） 、 文字按钮"
   />
   <Demo :component="Button2Demo" componentStr="添加属性 disabled 禁用按钮" />
   <Demo
