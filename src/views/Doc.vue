@@ -3,7 +3,7 @@
     <TopNav class="nav" :toggleMenuVisible="true" />
     <div class="content">
       <aside v-if="asideVisable">
-        <ul>
+        <ul class="openOl">
           <h2 @click="showTowOl">
             <span>开发指南</span
             ><svg class="icon" aria-hidden="true">
@@ -22,7 +22,7 @@
             </li>
           </ol>
         </ul>
-        <ul>
+        <ul class="openOl">
           <h2 @click="showTowOl">
             <span>组件</span
             ><svg class="icon" aria-hidden="true">
@@ -41,6 +41,9 @@
             </li>
             <li>
               <router-link to="/doc/tabs">Tabs 标签页</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/alert">Alert 标签页</router-link>
             </li>
           </ol>
         </ul>
