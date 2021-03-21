@@ -3,17 +3,19 @@
     <div class="simple-tabs-nav" ref="container">
       <div
         class="simple-tabs-nav-item"
-        v-for="(t, index) in titles"
+        v-for="(t, index) in tabs"
         :ref="
           (el) => {
-            if (t === selected) selectedItem = el;
+            if (t.title === selected || (selected === undefined && index === 0))
+              selectedItem = el;
           }
         "
         @click="select(t)"
-        :class="{ selected: t === selected }"
+        :class="{ selected: t.title === selected }"
         :key="index"
+        :disabled="t.disabled"
       >
-        {{ t }}
+        {{ t.title }}
       </div>
       <div class="simple-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -26,6 +28,10 @@
 <script lang="ts">
 import Tab from "./Tab.vue";
 import { computed, ref, onMounted, onUpdated } from "vue";
+type Tab = {
+  disabled: String | undefined;
+  title: String;
+};
 export default {
   props: {
     selected: {
@@ -51,24 +57,39 @@ export default {
       x();
     });
     const defaults = context.slots.default();
+
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error("Tabs 子标签必须是 Tab");
       }
     });
     const current = computed(() => {
-      return defaults.find((tag) => tag.props.title === props.selected);
+      let oldcurrent = defaults.find(
+        (tag) => tag.props.title === props.selected
+      );
+      if (oldcurrent === undefined) {
+        oldcurrent = defaults[0];
+      }
+      console.log(oldcurrent);
+
+      return oldcurrent;
     });
-    const titles = defaults.map((tag) => {
-      return tag.props.title;
+    const tabs = defaults.map((tag) => {
+      const tab = { title: "", disabled: false };
+      tab.title = tag.props.title;
+      tab.disabled = tag.props.disabled;
+      tab.disabled = tag.props.disabled;
+      return tab;
     });
-    const select = (title: string) => {
-      context.emit("update:selected", title);
+    const select = (tab: Tab) => {
+      if (tab.disabled !== "") {
+        context.emit("update:selected", tab.title);
+      }
     };
     return {
       current,
       defaults,
-      titles,
+      tabs,
       select,
       selectedItem,
       indicator,
@@ -82,7 +103,9 @@ export default {
 $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
+$grey: #aaa;
 .simple-tabs {
+  width: 100%;
   &-nav {
     display: flex;
     color: $color;
@@ -97,6 +120,10 @@ $border-color: #d9d9d9;
       }
       &.selected {
         color: $blue;
+      }
+      &[disabled] {
+        cursor: not-allowed;
+        color: $grey;
       }
     }
     &-indicator {

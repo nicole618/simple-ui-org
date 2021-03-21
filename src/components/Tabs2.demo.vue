@@ -1,8 +1,9 @@
-<demo>基础用法</demo>
+<demo>禁用切换列</demo>
 <template>
   <Tabs v-model:selected="x">
     <Tab title="导航1">内容一</Tab>
     <Tab title="导航2">内容二</Tab>
+    <Tab title="导航3" disabled>内容二</Tab>
   </Tabs>
 </template>
 
