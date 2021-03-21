@@ -7,7 +7,10 @@ import SwitchDemo from './views/SwitchDemo.vue';
 import TabsDemo from './views/TabsDemo.vue';
 import Markdown from './components/Markdown.vue';
 import AlertDemo from './views/AlertDemo.vue';
-import InputDemo from './views/InputDemo.vue'
+import InputDemo from './views/InputDemo.vue';
+import install from './markdown/install.md';
+import getStarted from './markdown/get-started.md';
+import intro from './markdown/intro.md';
 
 import { h } from 'vue';
 
@@ -20,16 +23,16 @@ export const router = createRouter({
         { path: '/', component: Home },
         {
             path: '/doc', component: Doc, children: [
-                { path: 'get-started', component: md('get-started') },
-                { path: 'intro', component: md('intro') },
-                { path: 'install', component: md('install') },
+                { path: 'get-started', component: md(getStarted) },
+                { path: 'intro', component: md(intro) },
+                { path: 'install', component: md(install) },
                 { path: '', redirect: '/doc/intro' },
                 { path: 'switch', component: SwitchDemo },
                 { path: 'button', component: ButtonDemo },
                 { path: 'dialog', component: DialogDemo },
                 { path: 'tabs', component: TabsDemo },
                 { path: 'alert', component: AlertDemo },
-                { path: 'nput', component: InputDemo }
+                { path: 'input', component: InputDemo }
             ]
         }
     ]
