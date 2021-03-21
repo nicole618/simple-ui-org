@@ -20,7 +20,7 @@ export const openAlert = (options) => {
         })
         app.mount(div);
         const alertClose = document.querySelector('.simple-alert-close');
-        alertClose?.addEventListener('click', () => {
+        alertClose && alertClose.addEventListener('click', () => {
             close();
         })
         const setTime = showTime | 2000;
