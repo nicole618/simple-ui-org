@@ -48,7 +48,7 @@
         </tr>
         <tr>
           <td>showTime</td>
-          <td>设置提示框显示事件</td>
+          <td>设置提示框显示时间</td>
           <td>Number</td>
           <td>-</td>
           <td>3000ms</td>
