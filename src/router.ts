@@ -14,7 +14,7 @@ import intro from './markdown/intro.md';
 
 import { h } from 'vue';
 
-const md = filename => h(Markdown, { path: `../markdown/${filename}.md`, key: filename })
+const md = string => h(Markdown, { content: string, key: string })
 
 const history = createWebHashHistory();
 export const router = createRouter({
