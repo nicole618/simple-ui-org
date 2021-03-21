@@ -24,6 +24,7 @@
 <script lang="ts">
 import "prismjs";
 import "prismjs/themes/prism-solarizedlight.css";
+import { openAlert } from "../lib/openAlert";
 const Prism = (window as any).Prism;
 import { computed, ref } from "vue";
 export default {
@@ -38,6 +39,12 @@ export default {
         Prism.languages.html
       );
     });
+    const showAlert = () => {
+      openAlert({
+        message: "复制成功",
+        showTime: 800,
+      });
+    };
     const formatCopy = (e) => {
       const span = e.currentTarget;
       const pre = span.nextElementSibling;
@@ -48,6 +55,7 @@ export default {
       selection.addRange(range);
       document.execCommand("Copy");
       selection.removeRange(range);
+      showAlert();
     };
     const codeVisible = ref(false);
     return {
@@ -55,6 +63,7 @@ export default {
       html,
       codeVisible,
       formatCopy,
+      showAlert,
     };
   },
 };
