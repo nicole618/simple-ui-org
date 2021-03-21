@@ -64,7 +64,7 @@ export default {
       }
     };
     const cancel = () => {
-      props.cancel?.();
+      props.cancel && props.cancel();
       close();
     };
     return { close, onClickOverlay, ok, cancel };
