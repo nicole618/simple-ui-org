@@ -20,6 +20,7 @@ export default {
     const showAlert = () => {
       openAlert({
         message: "这是一条信息提示",
+        isClose: true,
       });
     };
     const showAlert2 = () => {

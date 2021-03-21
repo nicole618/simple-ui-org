@@ -11,6 +11,36 @@
     :component="Tabs2Demo"
     componentStr="选项卡切换组件，使用disabled达到禁用切换列的效果"
   />
+  <section class="simple-args">
+    <h2>Tabs 参数</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>参数</th>
+          <th>说明</th>
+          <th>类型</th>
+          <th>可选值</th>
+          <th>默认值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td>tab 标签的内容</td>
+          <td>String</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>是否禁用某列导航切换</td>
+          <td>Boolean</td>
+          <td>true,false</td>
+          <td>false</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </template>
 
 <script lang="ts">
