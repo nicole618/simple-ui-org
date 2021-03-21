@@ -29,7 +29,7 @@ export const router = createRouter({
                 { path: 'dialog', component: DialogDemo },
                 { path: 'tabs', component: TabsDemo },
                 { path: 'alert', component: AlertDemo },
-                { path: 'input', component: InputDemo }
+                { path: 'nput', component: InputDemo }
             ]
         }
     ]
