@@ -12,4 +12,4 @@ npm install simple-ui
 yarn add simple-ui
 ```
 
-下一节：[开始使用](get-started)
+下一节：[开始使用](#/doc/get-started)
