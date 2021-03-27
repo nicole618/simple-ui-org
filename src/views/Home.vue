@@ -10,7 +10,7 @@
       <h1>Simple UI</h1>
       <h2>基于 Vue 3.0 低调的 Simple UI 组件库</h2>
       <p>
-        <a href="https://github.com/nicole618" target="blank" class="homeButton"
+        <a href="https://github.com/nicole618/simple-ui-org" target="blank" class="homeButton"
           ><svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-github"></use></svg
           >Github</a
