@@ -13,7 +13,7 @@
     componentStr="可以通过设置isClose来设置提示框是否能被关闭"
   />
   <section class="simple-args">
-    <h2>Button 参数</h2>
+    <h2>Alert 参数</h2>
     <table>
       <thead>
         <tr>
