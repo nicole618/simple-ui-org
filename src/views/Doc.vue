@@ -109,6 +109,11 @@ $color: #d9a4a8;
     padding: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    @media (max-width: 400px) {
+      padding: 15px;
+      overflow: scroll;
+      width: 100%;
+    }
   }
 }
 aside {
@@ -119,6 +124,7 @@ aside {
   left: 0;
   padding-top: 80px;
   height: 100%;
+  transition: all 0.3s ease;
   ul {
     > h2 {
       line-height: 40px;

@@ -43,14 +43,14 @@
         </tr>
         <tr>
           <td>ok</td>
-          <td>确认后执行事件</td>
+          <td>确认后执行事件,如果返回值为false，那么点击后不会关闭弹框</td>
           <td>Function</td>
           <td>-</td>
           <td>-</td>
         </tr>
         <tr>
           <td>cancel</td>
-          <td>取消后执行事件</td>
+          <td>取消后执行事件,如果返回值为false，那么点击后不会关闭弹框</td>
           <td>Function</td>
           <td>-</td>
           <td>-</td>
@@ -75,35 +75,12 @@
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
-import Dialog from "../lib/Dialog.vue";
-import Button from "../lib/Button.vue";
-import { openDialog } from "../lib/openDialog";
 import Dialog1Demo from "../components/Dialog1.demo.vue";
 import Dialog2Demo from "../components/Dialog2.demo.vue";
-
 import Demo from "../components/Demo.vue";
 export default {
-  components: { Dialog, Button },
   setup() {
-    const x = ref(false);
-    const toggle = () => {
-      x.value = !x.value;
-    };
-    const f1 = () => {
-      return false;
-    };
-    const f2 = () => {};
-    const showDialog = () => {
-      openDialog({
-        title: "标题",
-        content: "内容",
-        ok: () => {},
-        cancel: () => {},
-        closeOnClickOverlay: true,
-      });
-    };
-    return { x, toggle, f1, f2, showDialog, Dialog1Demo, Demo, Dialog2Demo };
+    return { Dialog1Demo, Dialog2Demo, Demo };
   },
 };
 </script>
